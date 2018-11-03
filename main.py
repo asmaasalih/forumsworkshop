@@ -27,28 +27,16 @@ class ATM:
 
 	def withdraw(self, request):
 		self.withdrawals_list.append(request)
+		notes = [100,50,10,5]
 
 		if self.balance > request:
 			self.balance = self.balance - request
 
-			while request > 0:
-
-				if request >= 100:
-					request -= 100
-					print("give 100")
-
-				elif request >= 50:
-					request -= 50
-					print("give 50")
-
-				elif request >= 10:
-					request -= 10
-					print("give 10")
-
-				else:
-					request -= 5
-					print("give 5")
-		return self.balance			
+			for note in notes:
+				while request >= note:
+					request -= note	
+					print("Give " + str(note))
+					
 	 
 		    
 	
